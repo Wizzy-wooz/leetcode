@@ -1,6 +1,8 @@
 package leetcode_challenges.april.day28
 
-object LC_FirstUnique {
+import scala.collection.mutable
+
+class LC_FirstUnique(_nums: Array[Int]) {
   //    You have a queue of integers, you need to retrieve the first unique integer in the queue.
   //
   //    Implement the FirstUnique class:
@@ -68,5 +70,57 @@ object LC_FirstUnique {
   //            1 <= nums[i] <= 10^8
   //            1 <= value <= 10^8
   //    At most 50000 calls will be made to showFirstUnique and add.
+  var map = new mutable.HashMap[Integer, Node]()
+  var head: Node = new Node()
+  var tail: Node = new Node()
 
+  head.next = tail
+  tail.prev = head
+  tail.value = -1
+  for (n <- _nums) {
+    if (!map.contains(n)) {
+      var node = new Node()
+      node.value = n
+      map.put(n, node)
+      node.prev = tail.prev
+      tail.prev = node
+      node.prev.next = node
+      node.next = tail
+    }
+    else {
+      var node = map(n)
+      if (node.value != -1) {
+        node.prev.next = node.next
+        node.next.prev = node.prev
+      }
+      node.value = -1
+    }
+  }
+
+  def showFirstUnique(): Int = head.next.value
+
+  def add(value: Int): Unit = {
+    if (!map.contains(value)) {
+      var node = new Node()
+      node.value = value
+      map.put(value, node)
+      node.prev = tail.prev
+      tail.prev = node
+      node.prev.next = node
+      node.next = tail
+    }
+    else {
+      var node = map(value)
+      if (node.value != -1) {
+        node.prev.next = node.next
+        node.next.prev = node.prev
+      }
+    }
+  }
+}
+
+class Node {
+  var value = 0
+  var next: Node = _
+  var prev: Node = _
 }
