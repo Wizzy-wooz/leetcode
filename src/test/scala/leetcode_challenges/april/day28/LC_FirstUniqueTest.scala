@@ -1,6 +1,5 @@
-package leetcode_challenges.april.day24.day28
+package leetcode_challenges.april.day28
 
-import leetcode_challenges.april.day28.LC_FirstUnique
 import org.scalatest.FlatSpec
 
 class LC_FirstUniqueTest extends FlatSpec{

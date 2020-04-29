@@ -1,4 +1,4 @@
-package leetcode_challenges.april.day24.day24
+package leetcode_challenges.april.day24
 
 import org.scalatest.FlatSpec
 

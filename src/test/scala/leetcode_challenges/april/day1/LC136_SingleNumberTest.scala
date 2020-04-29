@@ -1,6 +1,5 @@
-package leetcode_challenges
+package leetcode_challenges.april.day1
 
-import leetcode_challenges.april.day1.LC136_SingleNumber
 import org.scalatest.FlatSpec
 
 class LC136_SingleNumberTest extends FlatSpec {
