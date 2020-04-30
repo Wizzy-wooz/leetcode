@@ -1,6 +1,5 @@
-package leetcode_challenges.april
+package leetcode_challenges.april.day29
 
-import leetcode_challenges.april.day29.LC124_BinaryTreeMaximumPathSum
 import org.scalatest.FlatSpec
 
 class LC124_BinaryTreeMaximumPathSumTest extends FlatSpec{
